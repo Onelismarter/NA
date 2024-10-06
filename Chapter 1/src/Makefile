@@ -44,7 +44,7 @@ $(PDF_FILES): %.pdf: %.tex
     
 # 清理编译生成的文件    
 clean:    
-	rm -f $(EXE_FILES) *.o *.log *.aux *.pdf *.bib *.xml   
+	rm -f $(EXE_FILES) *.o *.log *.aux *.pdf *.bib *.xml *.fls *.gz *.fdb_latexmk  
     
 # 伪目标    
 .PHONY: all run pdf report clean    

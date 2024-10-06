@@ -31,7 +31,7 @@
 
 
 \section{A}
-Firstly, I designed an abstract class named `Function' in `function.hpp',which includes the function overloading
+Firstly, I designed an abstract class named `Function' in `function.hpp',which included the function overloading
  and the derivative function. Next, I designed an abstract class named `EquationSolver' in `EquationSolver.hpp', 
 and created three subclasses inherited from it: `Bisection\_Method', `Newton\_Method' and `Secant\_Method'.
  Finally, with `function.hpp' and `EquationSolver.hpp', in `ProblemB.cpp', `ProblemC.cpp',`ProblemD.cpp',`ProblemE.cpp' and `ProblemF.cpp',
@@ -75,7 +75,7 @@ and I respectively got the roots :
   \item $x_3 = -0.108108$.
 \end{itemize}
 
-Secondly, I play with other initial values:
+Secondly, I played with other initial values:
 \begin{itemize}
   \item \(\sin(x/2) - 1\) with \(x_0 = -9, x_1 = -8\),
   \item \(e^x - \tan x\) with \(x_0 = -4, x_1 = -2\),
@@ -88,7 +88,7 @@ and I respectively got the roots :
   \item $x_{3}^{'} = -0.487755$.
 \end{itemize}
 
-Using these two sets of initial values will result in two different roots. This is because the function itself has multiple roots, and the gradient descent method will converge to the root closest to the initial value.
+Using these two sets of initial values will result in two different roots. This is because the function itself has multiple roots, and the secant method will converge to the root closest to the initial value.
 
 \section{E}
 According to the problem statement, the water has the volume :
@@ -97,7 +97,7 @@ According to the problem statement, the water has the volume :
 V=L[0.5\pi r^2-r^2\arcsin(\frac{h}{r})-h(r^2-h^2)^{\frac{1}{2}}].
 \end{align}
 
-Since \( L = 10, r = 1, V = 12.4\), I convert (\ref{E}) into a problem of finding the roots of the function :
+Since \( L = 10, r = 1, V = 12.4\), I converted (\ref{E}) into a problem of finding the roots of the function :
 
 \begin{align}
   f(h)=10*[0.5\pi-\arcsin(h)-h(1-h^2)^{\frac{1}{2}}]-12.4.
@@ -131,10 +131,10 @@ $$\alpha = 33.982^{\circ} \approx 33^{\circ}.$$
 Here, given $$D = 30 in,$$ $l,h,\beta_1$are same as in part (a), with the initial guess $33^{\circ}$, the Newton's method output that
 $$\alpha = 37.4984^{\circ} $$
 \subsection*{(c)}
-For secant method, I have tried three initial value as far away as possible from $33^{\circ}$
+For secant method, I have tried three initial value as far away as possible from $33^{\circ}$:
 \begin{itemize}  
-  \item initial values:$x_0 = 0 , x_1 = 10,$ the root is $\alpha = 12.4007^{\circ}$  
-  \item initial values:$x_0 = 40 , x_1 = 50,$ the root is $\alpha = 109.73^{\circ}$   
+  \item initial values:$x_0 = 0 , x_1 = 10,$ the root is $\alpha = 12.4007^{\circ},$  
+  \item initial values:$x_0 = 40 , x_1 = 50,$ the root is $\alpha = 109.73^{\circ},$   
   \item initial values:$x_0 = 80 , x_1 = 90,$ the root is $\alpha = 88.4224^{\circ}.$  
 \end{itemize}  
 Reasons:
