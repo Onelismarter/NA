@@ -1,0 +1,148 @@
+\documentclass[a4paper]{article}
+\usepackage[affil-it]{authblk}
+\usepackage[backend=bibtex,style=numeric]{biblatex}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{comment}
+\geometry{margin=1.5cm, vmargin={0pt,1cm}}
+\setlength{\topmargin}{-1cm}
+\setlength{\paperheight}{29.7cm}
+\setlength{\textheight}{25.3cm}
+
+\addbibresource{citation.bib}
+
+
+\begin{document}
+% =================================================
+\title{Report one}
+
+\author{HuiyiLi 12435055
+  \thanks{Electronic address: \texttt{lililihuiy@163.com}}}
+\affil{(Computational mathematics , Second class of 24th PHD), Zhejiang University }
+
+
+\date{Due time: \today}
+
+\maketitle
+ \begin{abstract}
+  This report introduces my coding philosophy in A and presents the problem-solving approach, experimental results, and necessary explanations for each problem in B, C, D, E, and F.     
+\end{abstract} 
+
+
+\section{A}
+Firstly, I designed an abstract class named `Function' in `function.hpp',which includes the function overloading
+ and the derivative function. Next, I designed an abstract class named `EquationSolver' in `EquationSolver.hpp', 
+and created three subclasses inherited from it: `Bisection\_Method', `Newton\_Method' and `Secant\_Method'.
+ Finally, with `function.hpp' and `EquationSolver.hpp', in `ProblemB.cpp', `ProblemC.cpp',`ProblemD.cpp',`ProblemE.cpp' and `ProblemF.cpp',
+I respectively designed several subclasses inherited from `Function' and implemented the solution
+through multiple test functions.
+
+\section{B}
+I test my implementation of the bisection method on the following functions and intervals.
+\begin{itemize}
+  \item \( x - 1 - \tan x \) on \([0, \frac{\pi}{2}]\),
+  \item \( x^{-1} - 2^x \) on \([0, 1]\),
+  \item \( 2^{-x} + e^x + 2 \cos x - 6 \) on \([1, 3]\),
+  \item \( \frac{x^3 + 4x^2 + 3x + 5}{2x^3 - 9x^2 + 18x - 2} \) on \([0, 4]\).
+\end{itemize}
+Based on the results of the bisection method, their roots are as follows:
+\begin{itemize}
+  \item $x_1 = 0.860334$,
+  \item $x_2 = 0.641186$,
+  \item $x_3 = 1.82938$,
+  \item $x_4 = 0.117877$.
+\end{itemize}
+
+\section{C}
+I have solved $x = \tan x$ by Newton's method, and found that
+\begin{itemize}
+  \item the root near 4.5 is x = 4.49341,
+  \item the root near 7.7 is x = 7.72525.
+\end{itemize}
+
+\section{D}
+Firstly, I test my implementation of the secant method by the following functions and initial values,
+\begin{itemize}
+  \item \(\sin(x/2) - 1\) with \(x_0 = 0, x_1 = \frac{\pi}{2}\),
+  \item \(e^x - \tan x\) with \(x_0 = 1, x_1 = 1.4\),
+  \item \(x^3 - 12x^2 + 3x + 1\) with \(x_0 = 0, x_1 = -0.5\).
+\end{itemize}
+and I respectively got the roots :
+\begin{itemize}
+  \item $x_1 = 2.22144$,
+  \item $x_2 = 1.15992$,
+  \item $x_3 = -0.108108$.
+\end{itemize}
+
+Secondly, I play with other initial values:
+\begin{itemize}
+  \item \(\sin(x/2) - 1\) with \(x_0 = -9, x_1 = -8\),
+  \item \(e^x - \tan x\) with \(x_0 = -4, x_1 = -2\),
+  \item \(x^3 - 12x^2 + 3x + 1\) with \(x_0 = 0.2, x_1 = 0.4\),
+\end{itemize}
+and I respectively got the roots :
+\begin{itemize}
+  \item $x_{1}^{'} = -9.1018$,
+  \item $x_{2}^{'} = -3.2708$,
+  \item $x_{3}^{'} = -0.487755$.
+\end{itemize}
+
+Using these two sets of initial values will result in two different roots. This is because the function itself has multiple roots, and the gradient descent method will converge to the root closest to the initial value.
+
+\section{E}
+According to the problem statement, the water has the volume :
+
+\begin{align}\label{E}
+V=L[0.5\pi r^2-r^2\arcsin(\frac{h}{r})-h(r^2-h^2)^{\frac{1}{2}}].
+\end{align}
+
+Since \( L = 10, r = 1, V = 12.4\), I convert (\ref{E}) into a problem of finding the roots of the function :
+
+\begin{align}
+  f(h)=10*[0.5\pi-\arcsin(h)-h(1-h^2)^{\frac{1}{2}}]-12.4.
+\end{align}
+
+By three implementations in A , I respectively got the roots :
+
+\begin{itemize}  
+  \item Bisection Method: the root is $h_1 = 0.166166$  
+  \item Newton Method: the root is $h_2 = 0.166166$  
+  \item Secant Method: the root is $h_3 = 0.166344$  
+\end{itemize}  
+According to within 0.01ft, the deepth of the water is
+$$d = r - h \approx 1 - 0.17 = 0.83ft.$$
+
+\section{F}
+According to the problem statement, the equation :
+\begin{align}\label{F}
+  A\sin\alpha \cos\alpha +B\sin^2 \alpha-C\cos \alpha -E\sin\alpha = 0,
+\end{align}
+where
+$$A = l\sin\beta_1, B = l\cos\beta_1,$$
+$$C = (h+0.5D)\sin\beta_1 - 0.5D\tan \beta_1$$
+$$E = (h+0.5D)\cos\beta_1-0.5D.$$
+In the following subsection, I converted (\ref{F}) into a problem of finding the roots of the function :
+$$f(\alpha) = A\sin\alpha \cos\alpha +B\sin^2 \alpha-C\cos \alpha -E\sin\alpha$$
+\subsection*{(a)}
+Given $$ l = 89 in, h = 49 in, D = 55 in, \beta_1 = 11.5^{\circ},$$ with the initial value near $33^{\circ}$ ,the Newton's method successfully output that 
+$$\alpha = 33.982^{\circ} \approx 33^{\circ}.$$
+\subsection*{(b)}
+Here, given $$D = 30 in,$$ $l,h,\beta_1$are same as in part (a), with the initial guess $33^{\circ}$, the Newton's method output that
+$$\alpha = 37.4984^{\circ} $$
+\subsection*{(c)}
+For secant method, I have tried three initial value as far away as possible from $33^{\circ}$
+\begin{itemize}  
+  \item initial values:$x_0 = 0 , x_1 = 10,$ the root is $\alpha = 12.4007^{\circ}$  
+  \item initial values:$x_0 = 40 , x_1 = 50,$ the root is $\alpha = 109.73^{\circ}$   
+  \item initial values:$x_0 = 80 , x_1 = 90,$ the root is $\alpha = 88.4224^{\circ}.$  
+\end{itemize}  
+Reasons:
+
+It's obvious that the results are too far away from $33^{\circ}.$ The secant method requires two initial approximations, 
+and the choice of these initial values can significantly affect the algorithm's convergence and speed of convergence. If chosen improperly, it may not converge at all.
+
+
+\end{document}
+
+
