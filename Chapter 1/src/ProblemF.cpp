@@ -38,7 +38,8 @@ public:
         double C = (h+0.5*D)*sin(beta)-0.5*D*tan(beta);
         double E = (h+0.5*D)*cos(beta)-0.5*D;
        // std::cout << A << " " << B << " " << C << " " << E << " " << beta << std::endl;
-        return (A*sin(x)*cos(x)+B*sin(x)*sin(x)-C*cos(x)-E*sin(x));
+        double y = x/180*Pi;
+        return (A*sin(y)*cos(y)+B*sin(y)*sin(y)-C*cos(y)-E*sin(y));
     }
     double derivative(double x) const  {  
     double h = 1e-5;  // 微小增量  
@@ -66,7 +67,6 @@ void solve_Fac() {
     Secant_Method solver_F_Secant3(f, 80, 90);
     double alpha_c3 = solver_F_Secant3.solve();
     std::cout << "Secant Method : the third initial value, a root is: " << alpha_c3 << std::endl; 
-
 }
 
 void solve_Fb() {
@@ -83,3 +83,4 @@ int main()
     solve_Fb();
     return 0;
 }  
+

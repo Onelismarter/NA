@@ -51,9 +51,9 @@ Based on the results of the bisection method, their roots are as follows:
   \item $x_1 = 0.860334$,
   \item $x_2 = 0.641186$,
   \item $x_3 = 1.82938$,
-  \item $x_4 = 0.117877$.
+  \item $x_4 = NULL$.
 \end{itemize}
-
+According to the result, there is no root located in \([0, 4]\) of the last function.
 \section{C}
 I have solved $x = \tan x$ by Newton's method, and found that
 \begin{itemize}
@@ -70,9 +70,9 @@ Firstly, I test my implementation of the secant method by the following function
 \end{itemize}
 and I respectively got the roots :
 \begin{itemize}
-  \item $x_1 = 2.22144$,
-  \item $x_2 = 1.15992$,
-  \item $x_3 = -0.108108$.
+  \item $x_1 = 3.14159$,
+  \item $x_2 = 1.30633$,
+  \item $x_3 = -0.188685$.
 \end{itemize}
 
 Secondly, I played with other initial values:
@@ -83,9 +83,9 @@ Secondly, I played with other initial values:
 \end{itemize}
 and I respectively got the roots :
 \begin{itemize}
-  \item $x_{1}^{'} = -9.1018$,
-  \item $x_{2}^{'} = -3.2708$,
-  \item $x_{3}^{'} = -0.487755$.
+  \item $x_{1}^{'} = -9.42478$,
+  \item $x_{2}^{'} = -3.09641$,
+  \item $x_{3}^{'} = 0.451543$.
 \end{itemize}
 
 Using these two sets of initial values will result in two different roots. This is because the function itself has multiple roots, and the secant method will converge to the root closest to the initial value.
@@ -108,7 +108,7 @@ By three implementations in A , I respectively got the roots :
 \begin{itemize}  
   \item Bisection Method: the root is $h_1 = 0.166166$  
   \item Newton Method: the root is $h_2 = 0.166166$  
-  \item Secant Method: the root is $h_3 = 0.166344$  
+  \item Secant Method: the root is $h_3 = 0.166166$  
 \end{itemize}  
 According to within 0.01ft, the deepth of the water is
 $$d = r - h \approx 1 - 0.17 = 0.83ft.$$
@@ -129,13 +129,13 @@ Given $$ l = 89 in, h = 49 in, D = 55 in, \beta_1 = 11.5^{\circ},$$ with the ini
 $$\alpha = 33.982^{\circ} \approx 33^{\circ}.$$
 \subsection*{(b)}
 Here, given $$D = 30 in,$$ $l,h,\beta_1$are same as in part (a), with the initial guess $33^{\circ}$, the Newton's method output that
-$$\alpha = 37.4984^{\circ} $$
+$$\alpha = 33.1689^{\circ} $$
 \subsection*{(c)}
 For secant method, I have tried three initial value as far away as possible from $33^{\circ}$:
 \begin{itemize}  
-  \item initial values:$x_0 = 0 , x_1 = 10,$ the root is $\alpha = 12.4007^{\circ},$  
-  \item initial values:$x_0 = 40 , x_1 = 50,$ the root is $\alpha = 109.73^{\circ},$   
-  \item initial values:$x_0 = 80 , x_1 = 90,$ the root is $\alpha = 88.4224^{\circ}.$  
+  \item initial values:$x_0 = 0 , x_1 = 10,$ the root is $\alpha = 12.3657^{\circ},$  
+  \item initial values:$x_0 = 40 , x_1 = 50,$ the root is $\alpha = 109.755^{\circ},$   
+  \item initial values:$x_0 = 80 , x_1 = 90,$ the root is $\alpha = 88.5401^{\circ}.$  
 \end{itemize}  
 Reasons:
 
